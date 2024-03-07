@@ -29,14 +29,15 @@ const transporter = nodemailer.createTransport({
 
 // Route to handle sending emails
 app.post('/send-email', (req, res) => {
-    const { name, email, message } = req.body;
+            body: JSON.stringify({ name, email, message ,phone})
+            const { name, email, message, phone } = req.body;
 
     // Email message
     const mailOptions = {
         from: process.env?.USER_EMAIL,
         to: process.env?.USER_EMAIL,
         subject: 'New message from contact form',
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        text: `Name: ${name}\nEmail: ${email}\nPhone Number:${phone}\nMessage: ${message}`
     };
 
     // Send email
