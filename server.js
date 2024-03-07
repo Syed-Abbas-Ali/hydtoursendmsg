@@ -27,9 +27,12 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+app.get("/",(req,res)=>{
+    res.status(200).message("hello")
+})
 // Route to handle sending emails
 app.post('/send-email', (req, res) => {
-            body: JSON.stringify({ name, email, message ,phone})
+            // body: JSON.stringify({ name, email, message ,phone})
             const { name, email, message, phone } = req.body;
 
     // Email message
