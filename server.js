@@ -5,7 +5,7 @@ require('dotenv').config();
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,7 +35,7 @@ app.post('/send-email', (req, res) => {
     // Email message
     const mailOptions = {
         from: process.env?.USER_EMAIL,
-        to: process.env?.USER_EMAIL,
+        to: process.env?.RECIEVER_EMAIL,
         subject: 'New message from contact form',
         text: `Name: ${name}\nEmail: ${email}\nPhone Number:${phone}\nMessage: ${message}`
     };
